@@ -10,14 +10,22 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     // @see https://github.com/liuweiGL/vite-plugin-mkcert
-    mkcert({
-      source: "coding",
-    }),
+    // mkcert({
+    //   source: "coding",
+    // }),
   ],
+  // resolve: {
+  //   alias: {
+  //     "@": fileURLToPath(new URL("./src", import.meta.url)),
+  //   },
+  // },
   server: {
     port: 9527,
     host: true,
     cors: true,
-    https: true,
+    // https: true,
+    proxy: {
+      "/zero-test-factory": "http://localhost:3000",
+    },
   },
 });
